@@ -16,8 +16,8 @@ function request (options, callback) {
     }
   }
   
-  options.followRedirect = options.followRedirect ? options.followRedirect : true;
-  options.method = options.method ? options.method : 'GET';
+  if(!("followRedirect" in options)) options.followRedirect = true;
+  options.method = options.method || "GET";
   
   options.headers = options.headers ? options.headers :  {};
   if (!options.headers.host) {
